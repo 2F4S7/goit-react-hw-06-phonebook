@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { connect } from 'react-redux';
+import actions from '../../redux/active-contacts';
 import style from './ContactForm.module.css';
 
 class ContactForm extends Component {
@@ -18,9 +19,13 @@ class ContactForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const id = uuidv4();
+    const name = this.state;
+    const names = this.props.connect.map(contact => contact.name);
 
-    this.props.onSubmit({ id: id, ...this.state });
+    names.includes(name)
+      ? alert(`${name} has already been added to contacts`)
+      : this.props.onSubmit({ ...this.state });
+
     this.resetForm();
   };
 
@@ -70,4 +75,13 @@ class ContactForm extends Component {
   }
 }
 
-export default ContactForm;
+const mapStateToProps = ({ contact: { items } }) => ({
+  contacts: items,
+});
+const mapDispatchToProps = dispatch => ({
+  onSubmit: contact => {
+    return dispatch(actions.addContact(contact));
+  },
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
