@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from '../ContactList.module.css';
+import { connect } from 'react-redux';
+import actions from '../../../redux/active-contacts';
 
 const ContactItem = ({ id, name, number, onClick }) => {
   return (
@@ -23,8 +25,12 @@ const ContactItem = ({ id, name, number, onClick }) => {
   );
 };
 
+const mapDispatchToProps = dispatch => ({
+  onClick: id => dispatch(actions.deleteContact(id)),
+});
+
 ContactItem.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default ContactItem;
+export default connect(null, mapDispatchToProps)(ContactItem);

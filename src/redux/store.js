@@ -4,7 +4,7 @@ import {
   persistStore,
   persistReducer,
   FLUSH,
-  REHYDRAHE,
+  REHYDRATE,
   PAUSE,
   PERSIST,
   PURGE,
