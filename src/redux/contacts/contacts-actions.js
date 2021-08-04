@@ -11,6 +11,7 @@ const addContact = createAction('contacts/add', ({ name, number }) => ({
 
 const deleteContact = createAction('contacts/delete');
 const filterContacts = createAction('contacts/filter');
+
 const actions = { addContact, deleteContact, filterContacts };
 
 export default actions;

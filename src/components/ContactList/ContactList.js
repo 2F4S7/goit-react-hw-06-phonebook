@@ -28,6 +28,8 @@ const mapStateToProps = ({ contacts: { items, filter } }) => ({
   contacts: filterContacts(items, filter),
 });
 
+export default connect(mapStateToProps)(ContactList);
+
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
@@ -37,5 +39,3 @@ ContactList.propTypes = {
     }),
   ).isRequired,
 };
-
-export default connect(mapStateToProps)(ContactList);

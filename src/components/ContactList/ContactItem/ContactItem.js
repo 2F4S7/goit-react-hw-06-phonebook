@@ -1,22 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from '../ContactList.module.css';
+import actions from '../../../redux/contacts/contacts-actions';
 import { connect } from 'react-redux';
-import actions from '../../../redux/active-contacts';
+import styles from '../ContactList.module.css';
 
 const ContactItem = ({ id, name, number, onClick }) => {
   return (
-    <li className={style.item}>
-      <p className={style.name} title="Имя контакта">
-        {name}:
-      </p>
-      <p className={style.number} title="Номер телефона контакта">
-        {number}
-      </p>
+    <li className={styles.item}>
+      <p className={styles.name}>{name}</p>
+      <p className={styles.number}>{number}</p>
       <button
-        className={style.button}
+        className={styles.button}
         type="button"
-        title="Нажмите (Delete) что бы удалить контакт"
         onClick={() => onClick(id)}
       >
         Delete
@@ -29,8 +24,8 @@ const mapDispatchToProps = dispatch => ({
   onClick: id => dispatch(actions.deleteContact(id)),
 });
 
+export default connect(null, mapDispatchToProps)(ContactItem);
+
 ContactItem.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
-
-export default connect(null, mapDispatchToProps)(ContactItem);
