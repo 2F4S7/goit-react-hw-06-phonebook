@@ -1,20 +1,21 @@
 import React from 'react';
 import ContactForm from './components/ContactForm';
-import Section from './components/Section';
+import Top from './components/Section/Top';
+import Bot from './components/Section/Bot';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter';
 
 const App = () => {
   return (
     <div>
-      <Section title="Phonebook">
+      <Top title="Phonebook">
         <ContactForm />
-      </Section>
+      </Top>
 
-      <Section title="Contacts">
+      <Bot title="Contacts">
         <Filter />
         <ContactList />
-      </Section>
+      </Bot>
     </div>
   );
 };
