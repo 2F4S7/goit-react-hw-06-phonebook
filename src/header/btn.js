@@ -9,7 +9,7 @@ const Btn = ({ title, button }) => {
       <h1 className={style.title}>{title}</h1>
       <Button
         className={style.button}
-        href="https://github.com/2F4S7/goit-react-hw-03-phonebook"
+        href="https://github.com/2F4S7/goit-react-hw-06-phonebook"
         target="_blank"
         variant="dark"
         key={button}
