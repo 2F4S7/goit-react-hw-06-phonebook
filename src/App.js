@@ -1,23 +1,20 @@
 import React from 'react';
 import ContactForm from './components/ContactForm';
-import Btn from './components/Section/header/btn';
-import Top from './components/Section/Top';
-import Bottom from './components/Section/Bottom';
+import Section from './components/Section';
 import ContactList from './components/ContactList';
 import Filter from './components/Filter';
 
 const App = () => {
   return (
     <div>
-      <Btn title="React-Redux Home Work Phonebook 06" />
-      <Top title="Phonebook">
+      <Section title="Phonebook">
         <ContactForm />
-      </Top>
+      </Section>
 
-      <Bottom title="Contacts">
+      <Section title="Contacts">
         <Filter />
         <ContactList />
-      </Bottom>
+      </Section>
     </div>
   );
 };

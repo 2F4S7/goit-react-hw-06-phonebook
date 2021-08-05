@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ContactItem from './ContactItem';
-import style from './ContactList.module.css';
 import { connect } from 'react-redux';
+import ContactItem from './ContactItem';
+import styles from './ContactList.module.css';
 
 const ContactList = ({ contacts }) => {
   return (
-    <ul className={style.form}>
+    <ul className={styles.list}>
       {contacts.map(contact => {
         const { id, name, number } = contact;
 
